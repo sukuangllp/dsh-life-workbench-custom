@@ -1,0 +1,10 @@
+# 个人工作台 bundle patch：把插件行插入 web profile 的 roster。
+# 以 profile bundle 层的形式应用（package.json 的 dsh.bundle.patch 字段），
+# 用 `dsh plugin --profile web add link:/path/to/dsh-life-workbench-custom` 激活。
+#
+# 这是一个裸按包名的 plugin row：node 半边（exports "."）跑在 host 进程里
+# （数据所有权 + HTTP 端点），package.json 的 dsh.client 声明让浏览器半边
+# （exports "./client"，经 __ModuleLoader__ 协议加载）在 web GUI 里生效。
+- insert:
+    - id: ui-life-workbench
+      name: 'dsh-life-workbench'
